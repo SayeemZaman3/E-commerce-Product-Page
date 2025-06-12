@@ -1,10 +1,10 @@
 :root{
-  --Orange: hsl(26, 100%, 55%);
-  --Pale-orange: hsl(25, 100%, 94%);
-  --Very-dark-blue: hsl(220, 13%, 13%);
-  --Dark-grayish-blue: hsl(219, 9%, 45%);
-  --Grayish-blue: hsl(220, 14%, 75%);
-  --Light-grayish-blue: hsl(223, 64%, 98%);
+  --orange: hsl(26, 100%, 55%);
+  --pale-orange: hsl(25, 100%, 94%);
+  --very-dark-blue: hsl(220, 13%, 13%);
+  --dark-grayish-blue: hsl(219, 9%, 45%);
+  --grayish-blue: hsl(220, 14%, 75%);
+  --light-grayish-blue: hsl(223, 64%, 98%);
 }
 
 
@@ -99,7 +99,7 @@ body{
   }
   nav button:hover{
     opacity: 100%;
-    border-bottom: 5px var(--Orange) solid;
+    border-bottom: 5px var(--orange) solid;
   }
 }
 
@@ -133,6 +133,36 @@ header h1 {
 }
 #pfpBtn{
   background: transparent url(assets/image-avatar.png) center / 100% no-repeat;
-  width: 25px;
-  height: 25px;
+  width: 30px;
+  height: 30px;
+}
+
+
+
+
+/* Responsive */
+/* Desktop */
+@media (min-width: 751px) {
+  body{
+    margin: 0 128px;
+  }
+  header{
+    height: 100px;
+    border-bottom: 1px var(--light-grayish-blue) solid;
+  }
+  #r-btn{
+    position: relative;
+    margin-left: auto;
+  }
+  nav{
+    margin: 0 32px;
+    height: 100%;
+    display: flex;
+    gap: 32px;
+    margin: 0 40px;
+  }
+  nav button{
+    height: 100%;
+    padding: 0;
+  }
 }
