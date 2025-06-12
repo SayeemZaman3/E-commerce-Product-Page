@@ -4,11 +4,47 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title></title>
+  <title>Frontend Mentor | E-commerce Product Page</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet">
+  
+  <link rel="icon" href="assets/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css" type="text/css" media="all">
 </head>
 
 <body>
+  <header>
+    <div id="mobile-nav">
+      <button id="open-nav"></button>
+      <div class="bar" id="mnav">
+        <button class="close"></button>
+        <nav>
+          <a href=""><button>Collections</button></a>
+          <a href=""><button>Men</button></a>
+          <a href=""><button>Women</button></a>
+          <a href=""><button>About</button></a>
+          <a href=""><button>Contact</button></a>
+        </nav>
+      </div>
+      <div id="overlay"></div>
+    </div>
+    <nav id="desktop-nav">
+      <a href=""><button>Collections</button></a>
+      <a href=""><button>Men</button></a>
+      <a href=""><button>Women</button></a>
+      <a href=""><button>About</button></a>
+      <a href=""><button>Contact</button></a>
+    </nav>
+    
+    <h2>Sneakers</h2>
+    
+    <button class="cartBtn"></button>
+    <button class="pfpBtn"></button>
+  </header>
   
+  
+  <script src="cdn_modules/jquery@3.7.1/jquery.min.js"></script>
+  <script src="script.js"></script>
 </body>
 
 </html>
