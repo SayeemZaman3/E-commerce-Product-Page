@@ -17,7 +17,7 @@ body{
 /* Navigation */
 
 /* Mobile */
-@media (max-width: 751px) {
+@media (max-width: 750px) {
   #desktop-nav{
     display: none;
   }
@@ -80,5 +80,23 @@ body{
     font-weight: 700;
     font-size: 18px;
     padding: 16px 8px;
+  }
+}
+
+/* Desktop */
+@media (min-width: 751px) {
+  #mobile-nav{
+    display: none;
+  }
+  nav button{
+    background: none;
+    border: none;
+    color: #000;
+    opacity: 75%;
+    padding: 16px;
+  }
+  nav button:hover{
+    opacity: 100%;
+    border-bottom: 5px var(--Orange) solid;
   }
 }
