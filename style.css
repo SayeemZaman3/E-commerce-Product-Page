@@ -12,6 +12,7 @@
 body{
   font-family: 'Kumbh Sans', Arial;
   font-weight: 400;
+  margin: 0;
 }
 
 /* Navigation */
@@ -30,6 +31,7 @@ body{
     background-repeat: no-repeat;
     width: 35px;
     height: 35px;
+    margin: 0 8px;
   }
   #mnav{
     position: absolute;
@@ -99,4 +101,38 @@ body{
     opacity: 100%;
     border-bottom: 5px var(--Orange) solid;
   }
+}
+
+/* Header */
+header{
+  height: 60px;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
+header h1 {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  top: -2px;
+}
+#r-btn{
+  position: absolute;
+  display: flex;
+  right: 16px;
+  gap: 16px;
+}
+#r-btn button{
+  width: 20px;
+  height: 20px;
+  border: none;
+}
+#cartBtn{
+  background: transparent url(assets/icon-cart.svg) center / 100% no-repeat;
+}
+#pfpBtn{
+  background: transparent url(assets/image-avatar.png) center / 100% no-repeat;
+  width: 25px;
+  height: 25px;
 }
