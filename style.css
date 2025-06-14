@@ -153,12 +153,17 @@ header h1 {
   display: block;
   position: relative;
   width: 100%;
+  transition: opacity 0.5s;
+  opacity: 1;
 }
 .side-img{
   display: none;
 }
 #thumbnail button img{
   width: 25%;
+}
+#displayImg{
+  display: none;
 }
 #next, #prev{
   position: absolute;
@@ -316,6 +321,8 @@ header h1 {
   }
   #thumbnail{
     display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
     gap: 16px;
     flex-wrap: wrap;
     width: 50%;
@@ -323,9 +330,15 @@ header h1 {
   #details{
     width: 50%;
   }
-  .main-img{
-    grid-column: span 3;
+  #displayImg{
+    display: block;
+    grid-column: span 4;
+    grid-row: 1 / span 4;
     width: 100%;
+  }
+  .main-img{
+    border: 2px var(--orange) solid;
+    opacity: 0.5;
   }
   .side-img{
     display: block;
@@ -402,7 +415,7 @@ header h1 {
   }
   #buy{
     display: flex;
-    flex-direction: column;
+    flex-direction: col;
   }
 }
 /* Desktop */
