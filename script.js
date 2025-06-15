@@ -54,7 +54,9 @@ function prevImg() {
 }
 
 // Desktop
-$('[id^=p]').click(function() {
+$('[id^=p]').filter(function(){
+  return this.id.length === 2;
+}).click(function() {
   
   if ($(this).hasClass('main-img')) return;
   
