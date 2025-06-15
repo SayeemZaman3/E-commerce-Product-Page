@@ -75,3 +75,96 @@ function setImage() {
 
 // Repeater
 setInterval(nextImg, 4000)
+
+
+// Buy Section
+
+// Amount of purchase
+let amount = 0;
+
+$('#plus').click(() => {
+  amount++;
+  setAmount();
+});
+$('#minus').click(() => {
+  amount--;
+  setAmount();
+});
+
+function setAmount() {
+  $('#amount').val(amount);
+}
+
+$('#amount').change(() => {
+  amount = parseInt( $('#amount').val() );
+})
+
+
+// Cart
+
+$('#cartBtn').click(() => {
+  $('#cart').toggleClass('active')
+});
+
+$(document).click((e) => {
+  if (!$(e.target).closest('#cart, button').length) {
+    $('#cart').removeClass('active');
+  }
+});
+
+// Add To Cart
+let totalAmount = 0;
+
+$('#add-to-cart').click(() => {
+  if ($('#amount').val() > 0) {
+    createItem("Fall Limited Sneakers Edition", 125, "assets/image-product-1-thumbnail.jpg", parseInt($('#amount').val()));
+    $('#cart').addClass('active');
+    $('#amount').val(0);
+  }
+});
+
+
+function createItem(name, price, img, amount) {
+  $('#cart').append(`
+  <div class="item">
+    <div class="info">
+      <img src="${img}" alt="assets/image-product-1-thumbnail.jpg" class="item-img">
+      <div class="details">
+        <p class="name">${name}</p>
+        <p class="price-tag">$${price} × ${amount}</p>
+        <p class="total-price">$${price*amount}</p>
+        <button class="del">
+          <img src="assets/icon-delete.svg" alt="del">
+        </button>
+      </div>
+    </div>
+    <button class="checkout">Checkout</button>
+  </div>
+  `)
+  totalAmount += amount;
+  
+  // For Deleting Item In Cart
+  $('.del').click(function() {
+    totalAmount -= amount;
+    $('#totalAmount').text(totalAmount);
+    
+    $(this).closest('.item').remove();
+    cartCheck()
+  });
+  
+  totalAmount ? $('#totalAmount').addClass('active') :
+  $('#totalAmount').removeClass('active');
+  
+  $('#totalAmount').text(totalAmount);
+  cartCheck()
+}
+
+// Nothing Message
+function cartCheck() {
+  if ($('.item').length === 0) {
+    $('#status').addClass('active');
+  } else {
+    $('#status').removeClass('active');
+  }
+}
+cartCheck();
