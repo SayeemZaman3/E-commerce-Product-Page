@@ -14,10 +14,18 @@
 
 <body>
   <header>
+    
+    <!-- Navigation For Mobile -->
     <div id="mobile-nav">
-      <button id="open-nav"></button>
+      <button id="open-nav">
+        <svg width="16" height="15" xmlns="http://www.w3.org/2000/svg"><path d="M16 12v3H0v-3h16Zm0-6v3H0V6h16Zm0-6v3H0V0h16Z" fill="#69707D" fill-rule="evenodd"/></svg>
+      </button>
+      
+      <!-- Mnav -->
       <div class="bar" id="mnav">
-        <button class="close"></button>
+        <button class="close">
+          <svg width="14" height="15" xmlns="http://www.w3.org/2000/svg"><path d="m11.596.782 2.122 2.122L9.12 7.499l4.597 4.597-2.122 2.122L7 9.62l-4.595 4.597-2.122-2.122L4.878 7.5.282 2.904 2.404.782l4.595 4.596L11.596.782Z" fill="#69707D" fill-rule="evenodd"/></svg>
+        </button>
         <nav>
           <a href=""><button>Collections</button></a>
           <a href=""><button>Men</button></a>
@@ -31,6 +39,7 @@
     
     <h1>sneakers</h1>
     
+    <!-- Navigation For Desktop -->
     <nav id="desktop-nav">
       <a href=""><button>Collections</button></a>
       <a href=""><button>Men</button></a>
@@ -39,11 +48,15 @@
       <a href=""><button>Contact</button></a>
     </nav>
     
+    <!-- Buttons to the right -->
     <div id="r-btn">
       <div id="cartContainer">
         <button id="cartBtn" class="r-btn">
+          <svg width="22" height="20" xmlns="http://www.w3.org/2000/svg"><path d="M20.925 3.641H3.863L3.61.816A.896.896 0 0 0 2.717 0H.897a.896.896 0 1 0 0 1.792h1l1.031 11.483c.073.828.52 1.726 1.291 2.336C2.83 17.385 4.099 20 6.359 20c1.875 0 3.197-1.87 2.554-3.642h4.905c-.642 1.77.677 3.642 2.555 3.642a2.72 2.72 0 0 0 2.717-2.717 2.72 2.72 0 0 0-2.717-2.717H6.365c-.681 0-1.274-.41-1.53-1.009l14.321-.842a.896.896 0 0 0 .817-.677l1.821-7.283a.897.897 0 0 0-.87-1.114ZM6.358 18.208a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm10.015 0a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm2.021-7.243-13.8.81-.57-6.341h15.753l-1.383 5.53Z" fill="currentColor" fill-rule="nonzero"/></svg>
           <div id="totalAmount"></div>
         </button>
+        
+        <!-- Cart -->
         <div id="cart">
           <h4>Cart</h4>
           <p id="status">Your cart is empty</p>
@@ -54,23 +67,31 @@
   </header>
   
   <div id="main">
+    <!-- Thumbnail -->
     <div id="thumbnail">
-      <button class="prev" onclick="prevImg()"><img src="assets/icon-previous.svg"></button>
+      <button class="prev"></button>
       <img src="assets/image-product-1-thumbnail.jpg" alt="" id="displayImg">
       <img src="assets/image-product-1-thumbnail.jpg" alt="product-1" class="main-img" id="p0">
       <img src="assets/image-product-2-thumbnail.jpg" alt="product-2" class="side-img" id="p1">
       <img src="assets/image-product-3-thumbnail.jpg" alt="product-3" class="side-img" id="p2">
       <img src="assets/image-product-4-thumbnail.jpg" alt="product-4" class="side-img" id="p3">
-      <button class="next" onclick="nextImg()"><img src="assets/icon-next.svg"></button>
+      <button class="next"></button>
     </div>
     
+    <!-- Lightbox -->
     <div id="lightbox">
-      <button class="close"><img src="assets/icon-close.svg"></button>
+      <button class="close">
+        <svg width="14" height="15" xmlns="http://www.w3.org/2000/svg"><path d="m11.596.782 2.122 2.122L9.12 7.499l4.597 4.597-2.122 2.122L7 9.62l-4.595 4.597-2.122-2.122L4.878 7.5.282 2.904 2.404.782l4.595 4.596L11.596.782Z" fill="currentColor" fill-rule="evenodd"/></svg>
+      </button>
+      
+      <!-- Main Image -->
       <div id="mainImg">
-        <button class="prev" onclick="prevImg()"><img src="assets/icon-previous.svg"></button>
+        <button class="prev"></button>
         <img id="displayImage" src="assets/image-product-1-thumbnail.jpg">
-        <button class="next" onclick="nextImg()"><img src="assets/icon-next.svg"></button>
+        <button class="next"></button>
       </div>
+      
+      <!-- Side Images -->
       <div class="img-list">
         <img src="assets/image-product-1-thumbnail.jpg" alt="product-1" class="main-img" id="p00">
         <img src="assets/image-product-2-thumbnail.jpg" alt="product-2" class="side-img" id="p01">
@@ -79,12 +100,16 @@
       </div>
     </div>
     
+    <!-- Product Details -->
     <div id="details">
+      <!-- Text -->
       <div id="info">
         <h4>Company Name</h4>
         <h1>Fall Limited Sneakers Edition</h1>
         <p>These low profile sneakers are your casual wear companion, Featuring a durable outer sole, they'll withstand everything the weather can offer.</p>
       </div>
+      
+      <!-- Buy Section & Price -->
       <div id="buy-sect">
         <div id="price">
           <h2 id="new">$125.00</h2>
@@ -98,12 +123,13 @@
             <input type="number" name="amount" id="amount" placeholder="0" size="1">
             <button id="plus"></button>
           </div>
-          <button id="add-to-cart"><img src="assets/icon-cart.svg">Add To Cart</button>
+          <button id="add-to-cart"><svg width="24" height="22" xmlns="http://www.w3.org/2000/svg"><path d="M20.925 3.641H3.863L3.61.816A.896.896 0 0 0 2.717 0H.897a.896.896 0 1 0 0 1.792h1l1.031 11.483c.073.828.52 1.726 1.291 2.336C2.83 17.385 4.099 20 6.359 20c1.875 0 3.197-1.87 2.554-3.642h4.905c-.642 1.77.677 3.642 2.555 3.642a2.72 2.72 0 0 0 2.717-2.717 2.72 2.72 0 0 0-2.717-2.717H6.365c-.681 0-1.274-.41-1.53-1.009l14.321-.842a.896.896 0 0 0 .817-.677l1.821-7.283a.897.897 0 0 0-.87-1.114ZM6.358 18.208a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm10.015 0a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm2.021-7.243-13.8.81-.57-6.341h15.753l-1.383 5.53Z" fill="#000000" fill-rule="nonzero"/></svg>Add To Cart</button>
         </div>
       </div>
     </div>
   </div>
   
+  <!-- Scripts -->
   <script src="cdn_modules/jquery@3.7.1/jquery.min.js"></script>
   <script src="script.js"></script>
 </body>

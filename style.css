@@ -19,6 +19,13 @@ body{
   margin: 0;
   -webkit-tap-highlight-color: transparent;
 }
+button, img{
+  cursor: pointer;
+  transition: all 0.3s;
+}
+button:hover{
+  transition: all 0.3s;
+}
 
 /* Navigation */
 
@@ -30,10 +37,6 @@ body{
   #open-nav {
     background: none;
     border: none;
-    background-image: url(assets/icon-menu.svg);
-    background-position: center;
-    background-size: 50%;
-    background-repeat: no-repeat;
     width: 35px;
     height: 35px;
     margin: 0 8px;
@@ -45,7 +48,7 @@ body{
     top: 0;
     height: 100dvh;
     width: 200px;
-    z-index: 2;
+    z-index: 4;
     background: #fff;
     padding: 16px;
   }
@@ -62,7 +65,7 @@ body{
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 1;
+    z-index: 3;
     width: 100dvw;
     height: 100dvh;
     background: #000;
@@ -73,10 +76,7 @@ body{
     height: 35px;
     border: none;
     background: none;
-    background-image: url(assets/icon-close.svg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 50%;
+    cursor: pointer;
   }
   nav button{
     width: 100%;
@@ -110,6 +110,7 @@ body{
   }
 }
 
+
 /* Header */
 header{
   height: 60px;
@@ -128,24 +129,39 @@ header h1 {
   position: absolute;
   display: flex;
   right: 16px;
-  gap: 16px;
+  gap: 32px;
 }
 .r-btn{
   width: 20px;
   height: 20px;
-  border: none;
 }
 #cartBtn{
-  background: transparent url(assets/icon-cart.svg) center / 100% no-repeat;
+  background: none;
+  position: relative;
+  top: 2px;
+  border: none;
+  color: #69707D;
+}
+#cartBtn:hover{
+  color: #000;
 }
 #pfpBtn{
   background: transparent url(assets/image-avatar.png) center / 100% no-repeat;
   width: 30px;
   height: 30px;
+  border-radius: 100%;
+  border: none;
+}
+#pfpBtn:hover {
+  border: 1.5px solid var(--orange);
 }
 
 /* Main */
 /* Mobile */
+svg{
+  margin: 0;
+  padding: 0;
+}
 #thumbnail{
   display: flex;
   align-items: center;
@@ -176,15 +192,23 @@ header h1 {
   display: flex;
   justify-content: center;
   align-items: center;
+  align-content: center;
   cursor: pointer;
+  color: #1D2026;
 }
-#next{
+:is(.next, .prev) svg{
+  transform: scale(0.8);
+}
+:is(.next, .prev):hover svg{
+  color: var(--orange) !important;
+}
+.next{
   right: 16px;
 }
 .prev{
   left: 16px;
 }
-.details{
+#details{
   padding: 0 16px;
 }
 #info h4{
@@ -243,18 +267,27 @@ header h1 {
   background-color: var(--light-grayish-blue);
   padding: 10px 16px;
   border-radius: 8px;
+  height: 48px;
+}
+#amount-selector button:hover {
+  opacity: 0.5;
 }
 #amount-selector * {
-  background: transparent no-repeat center center;
+  background: transparent no-repeat center / 100%;
   border: none;
   font-size: 1.25rem;
-  color: var(--orange);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100%;
   opacity: 1;
+  height: 100%;
+}
+#plus {
+  background-image: url(assets/icon-plus.svg);
+}
+#minus {
+  background-image: url(assets/icon-minus.svg);
 }
 #amount{
   outline: none;
@@ -263,14 +296,8 @@ header h1 {
   font-size: 1rem;
   color: #000;
 }
-#plus{
-  background-image: url(assets/icon-plus.svg);
-}
-#minus{
-  background-image: url(assets/icon-minus.svg);
-}
 #add-to-cart{
-  padding: 20px;
+  padding: 0;
   border: 0;
   border-radius: 8px;
   background: var(--orange);
@@ -282,9 +309,14 @@ header h1 {
   justify-content: center;
   gap: 8px;
   cursor: pointer;
+  width: 100%;
 }
-#add-to-cart img{
-  filter: brightness(0);
+#add-to-cart:hover{
+  background: hsla(26, 100%, 55%, 0.5);
+}
+#amount-selector, #add-to-cart{
+  min-height: 48px;
+  max-height: 48px;
 }
 
 
@@ -322,7 +354,7 @@ header h1 {
     justify-content: center;
     height: 100%;
   }
-  #thumbnail .prev, #thumbnail .next{
+  #thumbnail :is(.next, .prev){
     display: none;
   }
   #thumbnail{
@@ -331,10 +363,10 @@ header h1 {
     grid-template-rows: repeat(5, 1fr);
     gap: 16px;
     flex-wrap: wrap;
-    width: 50%;
+    width: 45%;
   }
   #details{
-    width: 50%;
+    width: 55%;
   }
   #displayImg{
     display: block;
@@ -344,12 +376,15 @@ header h1 {
   }
   .main-img{
     border: 2px var(--orange) solid;
-    opacity: 0.5;
+    opacity: 0.4;
     background: #fff;
   }
   #thumbnail .side-img{
     display: block;
     width: 100%;
+  }
+  #thumbnail .side-img:hover{
+    opacity: 0.5;
   }
   
   /* Details */
@@ -371,6 +406,7 @@ header h1 {
     left: 0;
     grid-column: span 2;
   }
+  /* Buy Sect */
   #buy{
     display: grid;
     grid-template-columns: 1.5fr 2fr;
@@ -384,8 +420,13 @@ header h1 {
   #add-to-cart{
     font-size: 0.85rem;
   }
-  #add-to-cart img{
-    width: 32px;
+  #add-to-cart svg{
+    width: 24px;
+    height: 24px;
+    padding: 0;
+  }
+  #amount-selector button{
+    background-size: 16px;
   }
   img{
     border-radius: 8px;
@@ -466,26 +507,27 @@ header h1 {
   top: 32px;
   background: #fff;
   width: 330px;
-  min-height: 200px;
+  min-height: 230px;
   max-height: 350px;
   overflow-y: auto;
   overflow-x: hidden;
-  box-shadow: 0 6px 12px #949494;
-  border-radius: 4px;
+  border-radius: 8px;
   padding: 0;
   z-index: 2;
+  box-shadow: 0 6px 12px #383838;
 }
 #totalAmount{
   display: none;
 }
 #totalAmount.active{
   display: block;
-  position: relative;
+  position: absolute;
   background: var(--orange);
   border-radius: 20px;
   width: 18px;
   height: 12px;
-  bottom: 8px;
+  top: -2px;
+  right: -16px;
   font-size: 10px;
   font-weight: 700;
   color: #fff;
@@ -625,11 +667,14 @@ header h1 {
   display: block;
   width: 25%;
 }
-.close{
+#lightbox .close{
   position: relative;
   left: 180px;
   background: none;
   border: none;
-  filter: brightness(10);
   cursor: pointer;
+  color: #fff;
+}
+#lightbox .close:hover{
+  color: var(--orange);
 }
